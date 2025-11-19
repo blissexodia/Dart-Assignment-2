@@ -4,6 +4,7 @@ import 'simpleinterest.dart';
 import 'areaofcircle.dart';
 import 'palindrome.dart';
 import 'richtextscreen.dart';
+import 'borderdesign.dart'; // <-- ADD THIS
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
@@ -33,6 +34,11 @@ class Dashboard extends StatelessWidget {
             button(context, 'Area of Circle', const AreaCircleScreen()),
             button(context, 'Palindrome Number', const PalindromeScreen()),
             button(context, 'Rich Text Example', const RichTextScreen()),
+            button(
+              context,
+              'Border Design Example',
+              const BorderDesignScreen(),
+            ),
           ],
         ),
       ),
