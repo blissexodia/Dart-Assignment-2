@@ -24,32 +24,42 @@ class FlutterLayoutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F5F5),
       appBar: AppBar(
         title: const Text('Flutter Layout Screen'),
         centerTitle: true,
       ),
-      body: Center(
-        child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 20),
-          decoration: BoxDecoration(
-            color: Colors.black,
-            borderRadius: BorderRadius.circular(16),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.3),
-                blurRadius: 6,
-                offset: const Offset(0, 3),
-              ),
-            ],
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.black, Color(0xFF1A237E)],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              iconWithText(Icons.home, 'Home'),
-              iconWithText(Icons.person, 'Profile'),
-              iconWithText(Icons.settings, 'Settings'),
-            ],
+        ),
+        child: Center(
+          child: Card(
+            margin: const EdgeInsets.all(16),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
+            ),
+            elevation: 8,
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 20),
+              decoration: BoxDecoration(
+                gradient: const LinearGradient(
+                  colors: [Color(0xFF1A237E), Color(0xFF3949AB)],
+                ),
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  iconWithText(Icons.home, 'Home'),
+                  iconWithText(Icons.person, 'Profile'),
+                  iconWithText(Icons.settings, 'Settings'),
+                ],
+              ),
+            ),
           ),
         ),
       ),

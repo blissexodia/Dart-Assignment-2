@@ -27,7 +27,7 @@ class Dashboard extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           gradient: const LinearGradient(
-            colors: [Color(0xFF1A237E), Color(0xFF3949AB)],
+            colors: [Colors.black, Color(0xFF1A237E), Colors.redAccent],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -143,6 +143,12 @@ class AssignmentApp extends StatelessWidget {
         primaryColor: const Color(0xFF1A237E),
         scaffoldBackgroundColor: const Color(0xFFF5F5F5),
         appBarTheme: const AppBarTheme(backgroundColor: Color(0xFF1A237E)),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.redAccent,
+            foregroundColor: Colors.white,
+          ),
+        ),
       ),
       initialRoute: '/',
       routes: {

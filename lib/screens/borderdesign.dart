@@ -13,44 +13,62 @@ class BorderDesignScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F5F5),
       appBar: AppBar(
         title: const Text("Custom Border TextFields"),
         centerTitle: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          children: [
-            TextField(
-              decoration: InputDecoration(
-                labelText: "Name",
-                enabledBorder: _customBorder(Colors.grey),
-                focusedBorder: _customBorder(Colors.blue),
-                errorBorder: _customBorder(Colors.red),
-                focusedErrorBorder: _customBorder(Colors.redAccent),
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.black, Color(0xFF1A237E)],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
+        child: Center(
+          child: Card(
+            margin: const EdgeInsets.all(16),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+            elevation: 8,
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  TextField(
+                    decoration: InputDecoration(
+                      labelText: "Name",
+                      enabledBorder: _customBorder(Colors.grey),
+                      focusedBorder: _customBorder(Colors.blue),
+                      errorBorder: _customBorder(Colors.red),
+                      focusedErrorBorder: _customBorder(Colors.redAccent),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  TextField(
+                    decoration: InputDecoration(
+                      labelText: "Email",
+                      prefixIcon: const Icon(Icons.email),
+                      enabledBorder: _customBorder(Colors.green),
+                      focusedBorder: _customBorder(Colors.teal),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  TextField(
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      labelText: "Password",
+                      prefixIcon: const Icon(Icons.lock),
+                      enabledBorder: _customBorder(Colors.purple),
+                      focusedBorder: _customBorder(Colors.deepPurple),
+                    ),
+                  ),
+                ],
               ),
             ),
-            const SizedBox(height: 20),
-            TextField(
-              decoration: InputDecoration(
-                labelText: "Email",
-                prefixIcon: const Icon(Icons.email),
-                enabledBorder: _customBorder(Colors.green),
-                focusedBorder: _customBorder(Colors.teal),
-              ),
-            ),
-            const SizedBox(height: 20),
-            TextField(
-              obscureText: true,
-              decoration: InputDecoration(
-                labelText: "Password",
-                prefixIcon: const Icon(Icons.lock),
-                enabledBorder: _customBorder(Colors.purple),
-                focusedBorder: _customBorder(Colors.deepPurple),
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );

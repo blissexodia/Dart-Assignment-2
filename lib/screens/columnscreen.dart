@@ -6,20 +6,38 @@ class ColumnScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F5F5),
       appBar: AppBar(title: const Text('Column Screen'), centerTitle: true),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: const [
-            Icon(Icons.star, size: 50, color: Color(0xFF1A237E)),
-            SizedBox(height: 12),
-            Icon(Icons.star, size: 100, color: Color(0xFF3949AB)),
-            SizedBox(height: 12),
-            Icon(Icons.star, size: 50, color: Color(0xFF1A237E)),
-          ],
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.black, Color(0xFF1A237E)],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
+        child: Center(
+          child: Card(
+            margin: const EdgeInsets.all(16),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+            elevation: 8,
+            child: Padding(
+              padding: const EdgeInsets.all(24.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: const [
+                  Icon(Icons.star, size: 50, color: Color(0xFF1A237E)),
+                  SizedBox(height: 12),
+                  Icon(Icons.star, size: 100, color: Color(0xFF3949AB)),
+                  SizedBox(height: 12),
+                  Icon(Icons.star, size: 50, color: Color(0xFF1A237E)),
+                ],
+              ),
+            ),
+          ),
         ),
       ),
     );
