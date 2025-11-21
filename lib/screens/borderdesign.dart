@@ -13,6 +13,7 @@ class BorderDesignScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFF5F5F5),
       appBar: AppBar(
         title: const Text("Custom Border TextFields"),
         centerTitle: true,
@@ -30,10 +31,7 @@ class BorderDesignScreen extends StatelessWidget {
                 focusedErrorBorder: _customBorder(Colors.redAccent),
               ),
             ),
-
             const SizedBox(height: 20),
-
-            /// Second TextField
             TextField(
               decoration: InputDecoration(
                 labelText: "Email",
@@ -42,10 +40,7 @@ class BorderDesignScreen extends StatelessWidget {
                 focusedBorder: _customBorder(Colors.teal),
               ),
             ),
-
             const SizedBox(height: 20),
-
-            /// Third TextField
             TextField(
               obscureText: true,
               decoration: InputDecoration(

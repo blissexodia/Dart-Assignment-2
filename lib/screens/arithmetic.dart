@@ -29,6 +29,7 @@ class _ArithmeticScreenState extends State<ArithmeticScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFF5F5F5),
       appBar: AppBar(title: const Text('Arithmetic'), centerTitle: true),
       body: Padding(
         padding: const EdgeInsets.all(16),

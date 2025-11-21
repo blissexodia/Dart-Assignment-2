@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'arithmetic.dart';
-import 'simpleinterest.dart';
-import 'areaofcircle.dart';
-import 'palindrome.dart';
-import 'richtextscreen.dart';
-import 'borderdesign.dart';
-import 'flutterlayoutscreen.dart';
-import 'columnscreen.dart';
+import 'screens/arithmetic.dart';
+import 'screens/simpleinterest.dart';
+import 'screens/areaofcircle.dart';
+import 'screens/palindrome.dart';
+import 'screens/richtextscreen.dart';
+import 'screens/borderdesign.dart';
+import 'screens/flutterlayoutscreen.dart';
+import 'screens/columnscreen.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
@@ -15,14 +15,14 @@ class Dashboard extends StatelessWidget {
     BuildContext context,
     String title,
     IconData icon,
-    Widget page,
+    String routeName,
   ) {
     return InkWell(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (_) => page));
+        Navigator.pushNamed(context, routeName);
       },
       borderRadius: BorderRadius.circular(16),
-      splashColor: Colors.teal.withOpacity(0.3), // ripple effect
+      splashColor: Colors.teal.withOpacity(0.3),
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
@@ -85,49 +85,44 @@ class Dashboard extends StatelessWidget {
               context,
               'Arithmetic',
               Icons.calculate,
-              const ArithmeticScreen(),
+              '/arithmetic',
             ),
             dashboardCard(
               context,
               'Simple Interest',
               Icons.money,
-              const SimpleInterestScreen(),
+              '/simple_interest',
             ),
             dashboardCard(
               context,
               'Area of Circle',
               Icons.circle,
-              const AreaCircleScreen(),
+              '/area_circle',
             ),
-            dashboardCard(
-              context,
-              'Palindrome',
-              Icons.sort,
-              const PalindromeScreen(),
-            ),
+            dashboardCard(context, 'Palindrome', Icons.sort, '/palindrome'),
             dashboardCard(
               context,
               'Rich Text',
               Icons.text_fields,
-              const RichTextScreen(),
+              '/rich_text',
             ),
             dashboardCard(
               context,
               'Border Design',
               Icons.border_all,
-              const BorderDesignScreen(),
+              '/border_design',
             ),
             dashboardCard(
               context,
               'Column Screen',
               Icons.view_column,
-              const ColumnScreen(),
+              '/column',
             ),
             dashboardCard(
               context,
               'Flutter Layout',
               Icons.dashboard_customize,
-              const FlutterLayoutScreen(),
+              '/flutter_layout',
             ),
           ],
         ),
@@ -149,7 +144,18 @@ class AssignmentApp extends StatelessWidget {
         scaffoldBackgroundColor: const Color(0xFFF5F5F5),
         appBarTheme: const AppBarTheme(backgroundColor: Color(0xFF1A237E)),
       ),
-      home: const Dashboard(),
+      initialRoute: '/',
+      routes: {
+        '/': (_) => const Dashboard(),
+        '/arithmetic': (_) => const ArithmeticScreen(),
+        '/simple_interest': (_) => const SimpleInterestScreen(),
+        '/area_circle': (_) => const AreaCircleScreen(),
+        '/palindrome': (_) => const PalindromeScreen(),
+        '/rich_text': (_) => const RichTextScreen(),
+        '/border_design': (_) => const BorderDesignScreen(),
+        '/column': (_) => const ColumnScreen(),
+        '/flutter_layout': (_) => const FlutterLayoutScreen(),
+      },
     );
   }
 }

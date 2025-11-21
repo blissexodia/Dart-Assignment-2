@@ -22,6 +22,7 @@ class _PalindromeScreenState extends State<PalindromeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFF5F5F5),
       appBar: AppBar(title: const Text('Palindrome Number'), centerTitle: true),
       body: Padding(
         padding: const EdgeInsets.all(16),

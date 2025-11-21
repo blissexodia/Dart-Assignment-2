@@ -7,18 +7,14 @@ class FlutterLayoutScreen extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Icon(
-          icon,
-          size: 40,
-          color: Colors.white, // icon color white
-        ),
+        Icon(icon, size: 40, color: Colors.white),
         const SizedBox(height: 8),
         Text(
           label,
           style: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w600,
-            color: Colors.white, // text color white
+            color: Colors.white,
           ),
         ),
       ],
@@ -28,15 +24,16 @@ class FlutterLayoutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFF5F5F5),
       appBar: AppBar(
-        title: const Text("Flutter Layout Screen"),
+        title: const Text('Flutter Layout Screen'),
         centerTitle: true,
       ),
       body: Center(
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 20),
           decoration: BoxDecoration(
-            color: Colors.black, // container background black
+            color: Colors.black,
             borderRadius: BorderRadius.circular(16),
             boxShadow: [
               BoxShadow(
@@ -49,9 +46,9 @@ class FlutterLayoutScreen extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              iconWithText(Icons.home, "Home"),
-              iconWithText(Icons.person, "Profile"),
-              iconWithText(Icons.settings, "Settings"),
+              iconWithText(Icons.home, 'Home'),
+              iconWithText(Icons.person, 'Profile'),
+              iconWithText(Icons.settings, 'Settings'),
             ],
           ),
         ),

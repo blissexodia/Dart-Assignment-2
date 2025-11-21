@@ -6,6 +6,7 @@ class RichTextScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFF5F5F5),
       appBar: AppBar(title: const Text('Rich Text Example'), centerTitle: true),
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -20,14 +21,10 @@ class RichTextScreen extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-
-              // "ello" bold but not red
               TextSpan(
                 text: 'ello ',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-
-              // "world" normal text
               TextSpan(text: 'world'),
             ],
           ),
