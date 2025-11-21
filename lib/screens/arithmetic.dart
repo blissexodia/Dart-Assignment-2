@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class ArithmeticScreen extends StatefulWidget {
   const ArithmeticScreen({super.key});
@@ -8,22 +9,31 @@ class ArithmeticScreen extends StatefulWidget {
 }
 
 class _ArithmeticScreenState extends State<ArithmeticScreen> {
-  final a = TextEditingController();
-  final b = TextEditingController();
-  String result = '';
+  final TextEditingController firstController = TextEditingController(
+    text: '1',
+  );
+  final TextEditingController secondController = TextEditingController(
+    text: '2',
+  );
+  int result = 0;
 
-  void calculate(String op) {
-    final x = double.tryParse(a.text);
-    final y = double.tryParse(b.text);
-    if (x == null || y == null) return;
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-    double r = 0;
-    if (op == '+') r = x + y;
-    if (op == '-') r = x - y;
-    if (op == '*') r = x * y;
-    if (op == '/') r = y == 0 ? 0 : x / y;
+  @override
+  void dispose() {
+    firstController.dispose();
+    secondController.dispose();
+    super.dispose();
+  }
 
-    setState(() => result = r.toString());
+  void _computeSum() {
+    if (!_formKey.currentState!.validate()) return;
+
+    final int? a = int.tryParse(firstController.text.trim());
+    final int? b = int.tryParse(secondController.text.trim());
+    if (a == null || b == null) return;
+
+    setState(() => result = a + b);
   }
 
   @override
@@ -33,41 +43,58 @@ class _ArithmeticScreenState extends State<ArithmeticScreen> {
       appBar: AppBar(title: const Text('Arithmetic'), centerTitle: true),
       body: Padding(
         padding: const EdgeInsets.all(16),
-        child: Column(
-          children: [
-            TextField(
-              controller: a,
-              decoration: const InputDecoration(labelText: 'Number 1'),
-            ),
-            TextField(
-              controller: b,
-              decoration: const InputDecoration(labelText: 'Number 2'),
-            ),
-            const SizedBox(height: 20),
-            Wrap(
-              spacing: 10,
-              children: [
-                FilledButton(
-                  onPressed: () => calculate('+'),
-                  child: const Text('+'),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            children: [
+              TextFormField(
+                controller: firstController,
+                keyboardType: TextInputType.number,
+                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                decoration: const InputDecoration(
+                  labelText: 'First number',
+                  border: OutlineInputBorder(),
                 ),
-                FilledButton(
-                  onPressed: () => calculate('-'),
-                  child: const Text('-'),
+                validator: (value) {
+                  if (value == null || value.trim().isEmpty)
+                    return 'Please enter first number';
+                  if (int.tryParse(value.trim()) == null)
+                    return 'Enter a valid integer';
+                  return null;
+                },
+              ),
+              const SizedBox(height: 12),
+              TextFormField(
+                controller: secondController,
+                keyboardType: TextInputType.number,
+                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                decoration: const InputDecoration(
+                  labelText: 'Second number',
+                  border: OutlineInputBorder(),
                 ),
-                FilledButton(
-                  onPressed: () => calculate('*'),
-                  child: const Text('*'),
+                validator: (value) {
+                  if (value == null || value.trim().isEmpty)
+                    return 'Please enter second number';
+                  if (int.tryParse(value.trim()) == null)
+                    return 'Enter a valid integer';
+                  return null;
+                },
+              ),
+              const SizedBox(height: 16),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: _computeSum,
+                  child: const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 12.0),
+                    child: Text('SUM', style: TextStyle(fontSize: 18)),
+                  ),
                 ),
-                FilledButton(
-                  onPressed: () => calculate('/'),
-                  child: const Text('/'),
-                ),
-              ],
-            ),
-            const SizedBox(height: 20),
-            Text('Result: $result', style: const TextStyle(fontSize: 20)),
-          ],
+              ),
+              const SizedBox(height: 20),
+              Text('Result: $result', style: const TextStyle(fontSize: 20)),
+            ],
+          ),
         ),
       ),
     );
