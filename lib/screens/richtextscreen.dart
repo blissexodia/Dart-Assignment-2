@@ -10,7 +10,7 @@ class RichTextScreen extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.black, Color(0xFF1A237E)],
+            colors: [Color(0xFFB71C1C), Colors.black],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -31,7 +31,7 @@ class RichTextScreen extends StatelessWidget {
                     TextSpan(
                       text: 'H',
                       style: TextStyle(
-                        color: Colors.yellow,
+                        color: Colors.amberAccent,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -41,7 +41,7 @@ class RichTextScreen extends StatelessWidget {
                     ),
                     TextSpan(
                       text: 'world',
-                      style: TextStyle(color: Colors.blue),
+                      style: TextStyle(color: Colors.redAccent),
                     ),
                   ],
                 ),

@@ -10,7 +10,7 @@ class ColumnScreen extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.black, Color(0xFF1A237E)],
+            colors: [Color(0xFFB71C1C), Colors.black],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -29,11 +29,11 @@ class ColumnScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: const [
-                  Icon(Icons.star, size: 50, color: Color(0xFF1A237E)),
+                  Icon(Icons.star, size: 50, color: Color(0xFFB71C1C)),
                   SizedBox(height: 12),
-                  Icon(Icons.star, size: 100, color: Color(0xFF3949AB)),
+                  Icon(Icons.star, size: 100, color: Colors.white),
                   SizedBox(height: 12),
-                  Icon(Icons.star, size: 50, color: Color(0xFF1A237E)),
+                  Icon(Icons.star, size: 50, color: Color(0xFFB71C1C)),
                 ],
               ),
             ),

@@ -28,7 +28,7 @@ class Dashboard extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           gradient: const LinearGradient(
-            colors: [Colors.black, Color(0xFF1A237E), Colors.redAccent],
+            colors: [Color(0xFFB71C1C), Colors.black],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -47,7 +47,7 @@ class Dashboard extends StatelessWidget {
             CircleAvatar(
               radius: 30,
               backgroundColor: Colors.white,
-              child: Icon(icon, color: const Color(0xFF1A237E), size: 30),
+              child: Icon(icon, color: const Color(0xFFB71C1C), size: 30),
             ),
             const SizedBox(height: 14),
             Text(
@@ -56,7 +56,7 @@ class Dashboard extends StatelessWidget {
               style: const TextStyle(
                 fontSize: 17,
                 fontWeight: FontWeight.w600,
-                color: Colors.white,
+                color: Colors.amberAccent,
               ),
             ),
           ],
@@ -68,11 +68,11 @@ class Dashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F5F5),
+      backgroundColor: Colors.black,
       appBar: AppBar(
         title: const Text('Dashboard'),
         elevation: 4,
-        backgroundColor: const Color(0xFF1A237E),
+        backgroundColor: Colors.black,
         centerTitle: true,
       ),
       body: Padding(
@@ -121,6 +121,12 @@ class Dashboard extends StatelessWidget {
             ),
             dashboardCard(
               context,
+              'Container',
+              Icons.crop_square,
+              '/container',
+            ),
+            dashboardCard(
+              context,
               'Flutter Layout',
               Icons.dashboard_customize,
               '/flutter_layout',
@@ -141,9 +147,18 @@ class AssignmentApp extends StatelessWidget {
       title: 'Assignment App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: const Color(0xFF1A237E),
-        scaffoldBackgroundColor: const Color(0xFFF5F5F5),
-        appBarTheme: const AppBarTheme(backgroundColor: Color(0xFF1A237E)),
+        primaryColor: const Color(0xFFB71C1C),
+        scaffoldBackgroundColor: Colors.black,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.black,
+          titleTextStyle: TextStyle(
+            color: Colors.amberAccent,
+            fontSize: 20,
+            fontWeight: FontWeight.w600,
+          ),
+          toolbarTextStyle: TextStyle(color: Colors.amberAccent),
+          foregroundColor: Colors.amberAccent,
+        ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.redAccent,

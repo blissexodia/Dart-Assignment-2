@@ -31,7 +31,7 @@ class FlutterLayoutScreen extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.black, Color(0xFF1A237E)],
+            colors: [Color(0xFFB71C1C), Colors.black],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -47,7 +47,7 @@ class FlutterLayoutScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 20),
               decoration: BoxDecoration(
                 gradient: const LinearGradient(
-                  colors: [Color(0xFF1A237E), Color(0xFF3949AB)],
+                  colors: [Color(0xFFB71C1C), Colors.black],
                 ),
                 borderRadius: BorderRadius.circular(16),
               ),

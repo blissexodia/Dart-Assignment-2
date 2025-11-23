@@ -42,7 +42,7 @@ class _ArithmeticScreenState extends State<ArithmeticScreen> {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.black, Color(0xFF1A237E)],
+            colors: [Color(0xFFB71C1C), Colors.black],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
