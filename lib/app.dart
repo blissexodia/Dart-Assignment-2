@@ -7,6 +7,7 @@ import 'screens/richtextscreen.dart';
 import 'screens/borderdesign.dart';
 import 'screens/flutterlayoutscreen.dart';
 import 'screens/columnscreen.dart';
+import 'screens/containerscreen.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
@@ -160,6 +161,7 @@ class AssignmentApp extends StatelessWidget {
         '/rich_text': (_) => const RichTextScreen(),
         '/border_design': (_) => const BorderDesignScreen(),
         '/column': (_) => const ColumnScreen(),
+        '/container': (_) => const ContainerScreen(),
         '/flutter_layout': (_) => const FlutterLayoutScreen(),
       },
     );
